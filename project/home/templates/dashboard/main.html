@@ -1,0 +1,19 @@
+
+
+{% block content %}
+
+{% if request.user.is_authenticated %}
+
+Área Restrita
+Bem vindo
+
+{% else %}
+
+Você não tem acesso a essa área!
+
+{% endif %}
+
+{% endblock %}
+
+
+

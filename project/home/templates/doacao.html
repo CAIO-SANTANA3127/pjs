@@ -1,0 +1,361 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ozanimais - Doações</title>
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+  <link rel="stylesheet" type="text/css"
+    href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <!-- ========================================== -->
+  <!-- =====================Parte CSS===================== -->
+<style>/*
+=====================Pagina Completa===================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Times New Roman;
+  align-items: center;
+  justify-content: center;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-image: url('pata.jpg');
+}
+
+/* ==========================================
+=====================Seção de Cabeçalho===================== */
+.interface {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+header {
+  width: 100%;
+  background-color: #ff6347;
+}
+
+.top-header {
+  background-color: white;
+  padding: 20px 4%;
+}
+
+.top-header .logotipo img {
+  max-width: 220px;
+}
+
+.top-header .btn-social button {
+  width: 50px;
+  height: 50px;
+  font-size: 20px;
+  border-radius: 50%;
+  background-color: transparent;
+  border: 1px solid #00aaff;
+  cursor: pointer;
+  background-color: #00aaff;
+  color: white;
+}
+
+.top-header .btn-social button:hover {
+  background-color: #ff6347;
+  color: white;
+  border: 1px solid #ff6347;
+}
+
+.botao_doar {
+  background-color: #00aaff;
+  padding: 10px 20px;
+  border-radius: 10px;
+}
+
+.botao_doar a {
+  text-decoration: none;
+  color: white;
+}
+
+.botao_doar:hover {
+  background-color: #ff6347;
+  padding: 10px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.bottom-header nav ul {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  list-style-type: none;
+}
+
+.bottom-header nav ul li a {
+  color: #fff;
+  padding: 20px 40px;
+  text-decoration: none;
+  font-weight: 600;
+  display: block;
+  transition: .3s;
+}
+
+.bottom-header nav ul li a:hover {
+  background-color: orangered;
+  box-shadow: inset 0 0 0 0 #303030;
+}
+
+.drop-hover .drop {
+  display: none;
+  position: absolute;
+  background-color: #ff6347;
+  z-index: 1;
+}
+
+.drop-hover:hover .drop {
+  display: block;
+}
+
+.drop-hover .drop ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.drop-hover .drop ul li {
+  display: block;
+}
+
+.drop-hover .drop ul li a {
+  color: #fff;
+  padding: 10px 20px;
+  text-decoration: none;
+  display: block;
+  transition: 3.s;
+}
+
+.drop-hover .drop ul li a:hover {
+  background-color: orangered;
+}
+
+/* ==========================================
+=====================Como tudo começou...===================== */
+
+.interface2 {
+  background-color: white;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 1000px;
+  margin: 20px auto;
+  text-align: left;
+}
+
+.interface2 h1 {
+  margin-bottom: 10px;
+}
+
+/* ==========================================
+=====================Como Doar?===================== */
+
+.botao {
+  background-color: #00aaff;
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  text-align: center;
+  display: block;
+  margin: auto;
+}
+
+.botao:hover {
+  background-color: #ff6347;
+  transform: scale(1.03);
+}
+
+
+/* ==========================================
+=====================Rodapé (footer)===================== */
+footer {
+  background-color: #ff6347;
+  color: white;
+  padding: 20px 0;
+  text-align: center;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.footer-links {
+  flex: 1;
+  text-align: center;
+}
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links ul li {
+  display: inline;
+  margin: 0 10px;
+}
+
+.footer-links ul li a {
+  color: white;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.footer-links ul li a:hover {
+  color: #ffeeba;
+  transform: scale(1.05);
+}
+
+.footer-bottom {
+  padding: 5px;
+}
+
+.footer-bottom p {
+  margin: 0;
+}
+/* ==========================================
+=====================Página doacao.html===================== */
+#doacao-pix {
+  background-color: #f9f9f9;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+#doacao-pix h2 {
+  color: #ff6347;
+  margin-bottom: 20px;
+}
+
+.pix-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.pix-qrcode,
+.pix-dados {
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.pix-qrcode img {
+  width: 100%;
+  height: auto;
+}
+
+.pix-dados p {
+  margin: 10px 0;
+  font-size: 18px;
+}
+
+.pix-dados strong {
+  color: #333;
+}</style>
+</head>
+
+<body>
+  <header>
+    <!-- ========================================== -->
+    <!-- =====================Seção de Cabeçalho===================== -->
+    <section class="top-header">
+      <div class="interface">
+        <div class="btn-social">
+          <a href="https://www.instagram.com/ong.ozanimais/"><button><i class="bi bi-instagram"></i></button></a>
+          <a
+            href="https://wa.me/5521996967377?text=Ol%C3%A1%2C+tudo+bem%3F+Gostaria+de+informa%C3%A7%C3%B5es+sobre+a+ONG."><button><i
+                class="bi bi-whatsapp"></i></button></a>
+          <a href="https://www.facebook.com/ozanimais/?locale=pt_BR"><button><i class="bi bi-facebook"></i></button></a>
+        </div>
+        <div class="logotipo">
+          <a href="#">
+            <img src="{% static 'imagens/logoong.png' %}" alt="Logo"></a>
+        </div>
+        <div class="botao_doar">
+          <a href="#" class="btn">Faça Sua Doação</a>
+        </div>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <section class="bottom-header">
+      <div class="interface1">
+        <nav>
+          <ul>
+            <li><a href="{% url 'home:home' %}">Nossa História</a></li>
+            <li><a href="{% url 'home:home' %}">Resgates</a></li>
+            <li><a href="{% url 'home:home' %}">Como Doar?</a></li>
+            <li><a href="{% url 'home:home' %}">Parcerias</a></li>
+            <li><a href="{% url 'home:home' %}">Blog</a></li>
+            <li><a href="{% url 'home:home' %}">Voluntáriado</a></li>
+
+            <li class="drop-hover">
+              <a href="#">Login <i class="bi bi-caret-down-fill"></i></a>
+              <div class="drop">
+                <ul>
+                  <li><a href="{% url 'home:login' %}">Login</a></li>
+                  <li><a href="{% url 'home:register' %}">Cadastro</a></li>
+                </ul>
+              </div>
+            </li>
+
+          </ul>
+        </nav>
+      </div>
+    </section>
+  </header>
+  <main>
+    <!-- ========================================== -->
+    <!-- =====================Seção de QR Code===================== -->
+    <section id="doacao-pix">
+      <h2>Faça sua Doação via Pix</h2>
+      <div class="pix-container">
+        <div class="pix-qrcode">
+          <h3>QR Code Pix</h3>
+          <img src="{% static 'imagens/qrcode.jpg' %}" alt="QR Code para doação Pix">
+        </div>
+        <!-- ========================================== -->
+        <!-- =====================Seção de Dados Pix===================== -->
+        <div class="pix-dados">
+          <h3>Pix com Nome/CNPJ</h3>
+          <p>Nome: <strong>Associacao Ozanimais</strong></p>
+          <p>CNPJ: <strong>42.475.570/0001-88</strong></p>
+        </div>
+      </div>
+    </section>
+  </main>
+  </main>
+  <!-- ========================================== -->
+  <!-- =====================Seção de Footer===================== -->
+
+  <footer>
+    <p>&copy; 2024 Ozanimaís. Todos os direitos reservados.</p>
+  </footer>
+
+</body>
+
+</html> 

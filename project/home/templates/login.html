@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Ozanimais</title>
+    <link rel="stylesheet" href="{% static 'css/register.css' %}" type="text/css">
+</head>
+
+
+
+<body class="login-body">
+    
+    <div class="login-container">
+        <div class="logo">
+            <img src="{% static 'imagens/logoong.png' %}" alt="Ozanimais Logo">
+        </div>
+        <form class="login-form" method="post" action="/dologin/">
+
+            {% if msg %}
+            <div class="alert{{class}}">
+             {{msg}}
+            </div>
+             {% endif %}
+
+            {% csrf_token %}
+
+            <h2>Login</h2>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Senha:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit" >Entrar</button>
+        </form>
+        <div class="navigation-links">
+           <a href="{% url 'home:home' %}">Voltar ao Menu Principal</a>
+           <a href="{% url 'home:register' %}">Cadastre-se aqui</a>
+    </div>
+</body>
+
+</html>
